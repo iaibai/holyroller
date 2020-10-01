@@ -22,3 +22,18 @@ Route::get('/', function () {
 
     return view('welcome', compact('roll', 'previousRolls'));
 });
+
+
+Route::post('/roll', function () {
+    $roll = new \App\HolyRoll();
+    $roll->roll = rand(0, 100000);
+    $roll->save();
+
+    return $roll;
+});
+
+
+Route::get('/roll', function () {
+    return \App\HolyRoll::all()->sortByDesc("id");
+});
+

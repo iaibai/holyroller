@@ -29,4 +29,19 @@ class ExampleTest extends TestCase
         $response = $this->get('/');
         $response->assertSee("Previous Rolls");
     }
+
+    /**
+     * A basic test example.
+     *
+     * @return void
+     */
+    public function testThatPreviousRollsIncludesPreviousRollFirst()
+    {
+        $response = $this->post('/roll');
+        $firstRoll = $response->json()['roll'];
+
+        $response = $this->get('/roll');
+        $responseJ = $response->json();
+        $this->assertEquals($firstRoll, array_values($responseJ)[0]['roll']);
+    }
 }
