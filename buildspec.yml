@@ -5,6 +5,8 @@ phases:
     commands:
       - composer install
       - docker-compose up -d
+      - echo Sleeping!
+      - sleep 10
   build:
     commands:
       - php artisan migrate --env=testing
