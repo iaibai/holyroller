@@ -14,5 +14,7 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: changeme
       MYSQL_DATABASE: holyroller
+      MYSQL_USER: holy
+      MYSQL_PASSWORD: roller
     ports:
       - "3389:3306"
