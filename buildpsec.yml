@@ -1,0 +1,14 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - composer install
+      - docker-compose up -d
+  build:
+    commands:
+      - echo Built time! Did it install?
+
+  post_build:
+    commands:
+      - echo Post build! Did it build?
