@@ -7,6 +7,8 @@ phases:
       - docker-compose up -d
   build:
     commands:
+      - php artisan migrate
+      - php artisan test
       - echo Built time! Did it install?
 
   post_build:
